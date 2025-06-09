@@ -1,6 +1,6 @@
 "use client";
 
-import { AVAILABLE_ENDPOINTS } from "@/lib/fal";
+import { AVAILABLE_ENDPOINTS } from "@/lib/endpoints";
 import type { PlayerRef } from "@remotion/player";
 import { createContext, useContext } from "react";
 import { createStore } from "zustand";

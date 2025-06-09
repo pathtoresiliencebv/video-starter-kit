@@ -7,6 +7,30 @@ export type VideoProject = {
   aspectRatio: AspectRatio;
 };
 
+export type User = {
+  id: string;
+  email: string;
+  role: 'free' | 'pro';
+  subscription_status: 'active' | 'inactive' | 'cancelled';
+  created_at: number;
+  usage_count: number;
+  usage_limit: number;
+};
+
+export type ShortsProject = VideoProject & {
+  user_id: string;
+  prompt: string;
+  script: string;
+  voice_settings: {
+    voice_id: string;
+    voice_name: string;
+  };
+  template_id: string;
+  generation_status: 'prompt' | 'script' | 'voice' | 'visuals' | 'complete';
+  created_at: number;
+  updated_at: number;
+};
+
 export const PROJECT_PLACEHOLDER: VideoProject = {
   id: "",
   title: "",

@@ -18,6 +18,8 @@ import { Toaster } from "./ui/toaster";
 import { ExportDialog } from "./export-dialog";
 import LeftPanel from "./left-panel";
 import { KeyDialog } from "./key-dialog";
+import { ProjectLoader } from "./project-loader";
+import { AutoKeyLoader } from "./auto-key-loader";
 
 type AppProps = {
   projectId: string;
@@ -52,6 +54,8 @@ export function App({ projectId }: AppProps) {
     <ToastProvider>
       <QueryClientProvider client={queryClient}>
         <VideoProjectStoreContext.Provider value={projectStore}>
+          <AutoKeyLoader />
+          <ProjectLoader projectId={projectId} />
           <div className="flex flex-col relative overflow-x-hidden h-screen bg-background">
             <Header openKeyDialog={() => setKeyDialog(true)} />
             <main className="flex overflow-hidden h-full w-screen">

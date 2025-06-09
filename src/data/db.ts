@@ -75,6 +75,10 @@ export const db = {
         ...track,
       });
     },
+    async createWithId(track: VideoTrack) {
+      const db = await open();
+      return db.put("tracks", track);
+    },
   },
 
   keyFrames: {
@@ -97,6 +101,10 @@ export const db = {
         id: crypto.randomUUID(),
         ...keyFrame,
       });
+    },
+    async createWithId(keyFrame: VideoKeyFrame) {
+      const db = await open();
+      return db.put("keyFrames", keyFrame);
     },
     async update(id: string, keyFrame: Partial<VideoKeyFrame>) {
       const db = await open();
@@ -138,6 +146,13 @@ export const db = {
         id,
         ...media,
       });
+      await tx.done;
+      return result;
+    },
+    async createWithId(media: MediaItem) {
+      const db = await open();
+      const tx = db.transaction("media_items", "readwrite");
+      const result = await tx.store.put(media);
       await tx.done;
       return result;
     },

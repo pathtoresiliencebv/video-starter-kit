@@ -1,6 +1,6 @@
 import Header from "@/components/landing-header";
-import Hero from "@/components/landing-hero";
-import Features from "@/components/landing-features";
+import Hero from "@/components/shorts-hero";
+import Features from "@/components/shorts-features";
 import Community from "@/components/landing-community";
 import Footer from "@/components/landing-footer";
 
